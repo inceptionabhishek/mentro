@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/mentro/static/css/main.0c6a16a4.css",
+    "main.js": "/mentro/static/js/main.8a0e7f41.js",
+    "static/js/787.b1f3b128.chunk.js": "/mentro/static/js/787.b1f3b128.chunk.js",
+    "static/media/logo.svg": "/mentro/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/mentro/index.html",
+    "main.0c6a16a4.css.map": "/mentro/static/css/main.0c6a16a4.css.map",
+    "main.8a0e7f41.js.map": "/mentro/static/js/main.8a0e7f41.js.map",
+    "787.b1f3b128.chunk.js.map": "/mentro/static/js/787.b1f3b128.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0c6a16a4.css",
+    "static/js/main.8a0e7f41.js"
+  ]
+}
