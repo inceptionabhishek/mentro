@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
-import { Container, Box, Button } from "@chakra-ui/react";
+import { Container, Box, Button, ScaleFade } from "@chakra-ui/react";
 import { AiFillStar } from "react-icons/ai";
 import { Stack } from "@chakra-ui/react";
 import { FaStarHalfAlt } from "react-icons/fa";
 import ImageDisplayer from "./ImageDisplayer";
 
 function NameDisplayer(props) {
-  const [animated, setAnimated] = React.useState(false);
+  const [animated, setAnimated] = React.useState(props.circleRotatedLeft);
   const data = props.data;
   const circleRotatedLeft = props.circleRotatedLeft;
   const [timesAnimated, setTimesAnimated] = React.useState(0);
@@ -17,16 +17,23 @@ function NameDisplayer(props) {
     return rating - Math.floor(rating);
   };
   useEffect(() => {
-    if (timesAnimated === 0) {
-      setTimeout(() => {
-        setAnimated(!animated);
-      }, 90);
+    console.log("circleRotatedLeft", circleRotatedLeft);
+    if (circleRotatedLeft) {
       setTimeout(() => {
         setAnimated(false);
-      }, 90);
-      setTimesAnimated(timesAnimated + 1);
+        setTimesAnimated(timesAnimated + 1);
+      }, 100);
+      setTimeout(() => {
+        setAnimated(true);
+        setTimesAnimated(timesAnimated + 1);
+      }, 100);
+    } else {
+      setTimeout(() => {
+        setAnimated(true);
+        setTimesAnimated(timesAnimated + 1);
+      }, 100);
     }
-  }, [circleRotatedLeft, animated, timesAnimated]);
+  }, [circleRotatedLeft]);
   const displayRating = (rating) => {
     return (
       <>
@@ -126,7 +133,6 @@ function NameDisplayer(props) {
               fontSize: "20px",
               marginBottom: "30px",
             }}
-            className={animated ? "animate" : "animate.grow"}
           >
             {data.title}
           </h2>
@@ -138,17 +144,20 @@ function NameDisplayer(props) {
           >
             {data.description}
           </p>
-          <Button
-            variant="outline"
-            style={{
-              fontSize: "15px",
-              marginBottom: "30px",
-              backgroundColor: "green",
-              boxShadow: "0 8px 16px 0 green, 0 6px 20px 0 rgba(0,0,0,0.19)",
-            }}
-          >
-            Book a Session
-          </Button>
+          <ScaleFade in={animated}>
+            <Button
+              variant="outline"
+              style={{
+                fontSize: "20px",
+                marginBottom: "30px",
+                backgroundColor: "#609966",
+                boxShadow: "0 8px 16px 0 green, 0 6px 20px 0 rgba(0,0,0,0.19)",
+                width: "200px",
+              }}
+            >
+              Book a Session
+            </Button>
+          </ScaleFade>
         </Box>
         <ImageDisplayer
           data={data.image}

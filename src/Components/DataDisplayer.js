@@ -18,6 +18,7 @@ const DataDisplayer = ({ data, circleRotatedLeft, circleRotatedRight }) => {
   }, [circleRotatedLeft, circleRotatedRight, currentUserView, data]);
   return (
     <>
+    
       <div className="semi-circle">
         <ImageDisplayer
           data={data[0].image}
